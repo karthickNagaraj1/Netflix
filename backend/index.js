@@ -9,14 +9,14 @@ app.use(express.json());
 
 // Mock Users
 const users = [
-  { email: "karthi@gmail.com", password: "12345" },
-  { email: "admin@gmail.com", password: "admin123" }
+  { email: "karthi@gmail.com", password: 12345 },
+  { email: "admin@gmail.com", password: 123 }
 ];
 
 // Login Route
 app.post("/api/login", (req, res) => {
   const { email, password } = req.body;
-  const user = users.find(u => u.email === email && u.password === password);
+  const user = users.find(u => u.email === email && u.password == password);
 
   if (user) {
     return res.status(200).json({ message: "Login successful" });
